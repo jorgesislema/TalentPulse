@@ -1,0 +1,16 @@
+# Parámetros para el pipeline ETL de HR
+input_data_path: Data/raw/HR_Data_MNC_Data Science Lovers.csv
+output_data_path: Data/processed/clean_hr.csv
+log_path: artifacts/metrics/etl.log
+columns_to_keep:
+  - EmployeeID
+  - Age
+  - Department
+  - Education
+  - Gender
+  - JobRole
+  - MaritalStatus
+  - MonthlyIncome
+  - OverTime
+  - PerformanceRating
+  - YearsAtCompany
