@@ -1,0 +1,139 @@
+{
+  "dataset_shape": [
+    2000000,
+    12
+  ],
+  "null_counts": {
+    "unnamed:_0": 0,
+    "id_empleado": 0,
+    "nombre_completo": 0,
+    "departamento": 0,
+    "puesto": 0,
+    "fecha_contratacion": 0,
+    "ubicacion": 0,
+    "calificacion_desempeno": 0,
+    "anios_experiencia": 0,
+    "estatus": 0,
+    "modalidad_trabajo": 0,
+    "salario_inr": 0
+  },
+  "duplicate_rows": "0",
+  "data_types": {
+    "unnamed:_0": "int64",
+    "id_empleado": "object",
+    "nombre_completo": "object",
+    "departamento": "object",
+    "puesto": "object",
+    "fecha_contratacion": "object",
+    "ubicacion": "object",
+    "calificacion_desempeno": "int64",
+    "anios_experiencia": "int64",
+    "estatus": "object",
+    "modalidad_trabajo": "object",
+    "salario_inr": "int64"
+  },
+  "numeric_outliers": {
+    "unnamed:_0": {
+      "outliers_count": 0,
+      "outliers_percentage": 0.0,
+      "lower_bound": -999999.5,
+      "upper_bound": 2999998.5
+    },
+    "calificacion_desempeno": {
+      "outliers_count": 0,
+      "outliers_percentage": 0.0,
+      "lower_bound": -1.0,
+      "upper_bound": 7.0
+    },
+    "anios_experiencia": {
+      "outliers_count": 0,
+      "outliers_percentage": 0.0,
+      "lower_bound": -7.0,
+      "upper_bound": 17.0
+    },
+    "salario_inr": {
+      "outliers_count": 69298,
+      "outliers_percentage": 3.4649,
+      "lower_bound": -69752.875,
+      "upper_bound": 1759844.125
+    }
+  },
+  "categorical_analysis": {
+    "id_empleado": {
+      "unique_count": 2000000,
+      "top_values": {
+        "EMP0000001": 1,
+        "EMP0000002": 1,
+        "EMP0000003": 1,
+        "EMP0000004": 1,
+        "EMP0000005": 1
+      }
+    },
+    "nombre_completo": {
+      "unique_count": 467487,
+      "top_values": {
+        "Michael Smith": 1014,
+        "Michael Johnson": 781,
+        "David Smith": 634,
+        "Jennifer Smith": 624,
+        "Michael Williams": 609
+      }
+    },
+    "departamento": {
+      "unique_count": 7,
+      "top_values": {
+        "IT": 601042,
+        "Sales": 400031,
+        "Operations": 300095,
+        "Marketing": 240081,
+        "Finance": 199873
+      }
+    },
+    "puesto": {
+      "unique_count": 29,
+      "top_values": {
+        "Software Engineer": 300358,
+        "Sales Executive": 199982,
+        "Operations Executive": 150058,
+        "Data Analyst": 120375,
+        "Marketing Executive": 120154
+      }
+    },
+    "fecha_contratacion": {
+      "unique_count": 5479,
+      "top_values": {
+        "2022-10-31": 622,
+        "2023-02-08": 620,
+        "2020-09-10": 617,
+        "2020-11-13": 616,
+        "2023-12-11": 614
+      }
+    },
+    "ubicacion": {
+      "unique_count": 1593497,
+      "top_values": {
+        "Lake Michael, Congo": 20,
+        "New Christopher, Congo": 19,
+        "East Michael, Congo": 17,
+        "West Michael, Uzbekistan": 16,
+        "East David, Congo": 16
+      }
+    },
+    "estatus": {
+      "unique_count": 4,
+      "top_values": {
+        "Active": 1401558,
+        "Resigned": 398660,
+        "Retired": 99912,
+        "Terminated": 99870
+      }
+    },
+    "modalidad_trabajo": {
+      "unique_count": 2,
+      "top_values": {
+        "On-site": 1199109,
+        "Remote": 800891
+      }
+    }
+  }
+}
