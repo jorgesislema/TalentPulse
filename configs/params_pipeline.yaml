@@ -1,0 +1,114 @@
+# configs/params_pipeline.yaml
+# Configuración del Pipeline ETL
+# =============================
+
+pipeline:
+  # Configuración general
+  name: "TalentPulse ETL Pipeline"
+  version: "1.0.0"
+  
+  # Pasos del pipeline (orden de ejecución)
+  steps:
+    - cleaning
+    - quality_validation
+    - feature_engineering
+    - data_export
+  
+  # Configuración de archivos
+  paths:
+    raw_data: "Data/raw/HR_Data_MNC_Data Science Lovers.csv"
+    processed_data: "Data/processed/clean_hr.csv"
+    features_data: "Data/processed/hr_with_features.csv"
+    warehouse_data: "Data/warehouse/hr_final.csv"
+    quality_report: "artifacts/metrics/quality_report.json"
+    pipeline_log: "artifacts/logs/pipeline.log"
+
+# Configuración de Feature Engineering
+features:
+  # Features de antigüedad
+  tenure:
+    enabled: true
+    categories: ["Nuevo", "Junior", "Intermedio", "Senior", "Veterano"]
+    thresholds: [1, 3, 5, 10]  # años
+  
+  # Features de salario
+  salary:
+    enabled: true
+    percentiles: true
+    quartiles: true
+    z_score: true
+  
+  # Features de desempeño
+  performance:
+    enabled: true
+    high_performance_threshold: 0.8  # percentil 80
+    categories: ["Bajo", "Regular", "Bueno", "Excelente"]
+  
+  # Features demográficas
+  demographics:
+    enabled: true
+    experience_categories: ["Entry", "Junior", "Mid", "Senior", "Expert"]
+    experience_thresholds: [2, 5, 10, 20]  # años
+
+# Configuración de validaciones de calidad
+quality:
+  # Umbrales de calidad
+  thresholds:
+    max_null_percentage: 5.0  # % máximo de nulos por columna
+    max_duplicate_percentage: 1.0  # % máximo de duplicados
+    min_unique_ratio: 0.95  # ratio mínimo de unicidad para IDs
+  
+  # Columnas críticas que no pueden tener nulos
+  critical_columns:
+    - "id_empleado"
+    - "departamento"
+    - "estatus"
+  
+  # Validaciones de outliers
+  outlier_detection:
+    method: "iqr"  # iqr, zscore, isolation_forest
+    threshold: 1.5  # multiplicador IQR
+    columns:
+      - "salario_inr"
+      - "calificacion_desempeno"
+      - "anios_experiencia"
+
+# Configuración de exportación
+export:
+  # Formatos de salida
+  formats:
+    - csv
+    - parquet
+  
+  # Configuración de Parquet
+  parquet:
+    compression: "snappy"  # snappy, gzip, brotli
+    
+  # Configuración de warehouse
+  warehouse:
+    enabled: true
+    format: "csv"
+    include_timestamp: true
+    
+  # Configuración de base de datos (opcional)
+  database:
+    enabled: false
+    type: "mysql"
+    table_name: "empleados"
+    batch_size: 10000
+
+# Configuración de logging
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file_enabled: true
+  console_enabled: true
+
+# Configuración de notificaciones (futuro)
+notifications:
+  enabled: false
+  email:
+    smtp_server: ""
+    recipients: []
+  slack:
+    webhook_url: ""
