@@ -3,14 +3,21 @@ input_data_path: Data/raw/HR_Data_MNC_Data Science Lovers.csv
 output_data_path: Data/processed/clean_hr.csv
 log_path: artifacts/metrics/etl.log
 columns_to_keep:
-  - EmployeeID
-  - Age
+  - Employee_ID
+  - Full_Name
   - Department
-  - Education
-  - Gender
-  - JobRole
-  - MaritalStatus
-  - MonthlyIncome
-  - OverTime
-  - PerformanceRating
-  - YearsAtCompany
+  - Job_Title
+  - Hire_Date
+  - Location
+  - Performance_Rating
+  - Experience_Years
+  - Status
+  - Work_Mode
+  - Salary_INR
+rename_to_spanish: true
+
+quality_critical:
+  unique: [id_empleado]           # también acepta employee_id
+  non_negative: [ingreso_mensual] # también acepta monthly_income
+  domain:
+    horas_extra: [0, 1]           # también acepta overtime
