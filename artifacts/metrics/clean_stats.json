@@ -1,0 +1,19 @@
+{
+  "rows_in": 2000000,
+  "rows_out": 2000000,
+  "columns": [
+    "unnamed:_0",
+    "id_empleado",
+    "nombre_completo",
+    "departamento",
+    "puesto",
+    "fecha_contratacion",
+    "ubicacion",
+    "calificacion_desempeno",
+    "anios_experiencia",
+    "estatus",
+    "modalidad_trabajo",
+    "salario_inr"
+  ],
+  "engine": "pandas"
+}
